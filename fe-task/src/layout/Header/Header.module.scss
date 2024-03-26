@@ -1,0 +1,107 @@
+@import '../../shared/styles/variables.scss';
+
+.header {
+  .top-nav {
+    padding: 0.5rem 1.5rem 0.5rem 1.25rem;
+    background-color: $dark-blue-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ul {
+      display: flex;
+      list-style-type: none;
+      gap: 1.25rem;
+      .nav-link {
+        color: $light-blue-color;
+        text-decoration: none;
+      }
+      .active {
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          right: calc(50% - 8px);
+          margin-left: -27px;
+          width: 0;
+          height: 0;
+          bottom: -25px;
+          border-bottom: solid 8px $light-gray-color;
+          border-left: solid 8px transparent;
+          border-right: solid 8px transparent;
+        }
+      }
+    }
+    .buttons-section {
+      display: flex;
+      align-items: center;
+      .search-section {
+        background-color: $white-color;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        input,
+        .close-serach-button {
+          display: none;
+        }
+      }
+      .search-section.active {
+        background-color: transparent;
+        border: 1px solid $white-color;
+        width: 300px;
+        border-radius: 50px;
+        justify-content: normal;
+        position: relative;
+        svg {
+          margin: 0 0.75rem;
+          path {
+            fill: $white-color;
+          }
+        }
+        input,
+        .close-serach-button {
+          display: inline-block;
+          background: transparent;
+          border: none;
+          padding: 0;
+        }
+        input {
+          color: $white-color;
+          &:focus-visible {
+            outline: none;
+          }
+        }
+        .close-serach-button {
+          position: absolute;
+          right: 0.75rem;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          svg {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+  .main-nav {
+    background-color: $light-gray-color;
+    padding: 0 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .logo-icon {
+      width: 154px;
+      height: 30px;
+      padding: 1.25rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header .top-nav .buttons-section {
+    display: none;
+  }
+}

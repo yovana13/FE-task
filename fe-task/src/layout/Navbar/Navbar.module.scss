@@ -1,0 +1,78 @@
+@import '../../shared/styles/variables.scss';
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style-type: none;
+  gap: 0.875rem;
+  margin: 0;
+  padding: 0;
+  a {
+    color: $black-color;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .nav-item {
+    padding: 1.25rem 0;
+    .dropdown-menu {
+      display: none;
+      list-style-type: none;
+      padding: 0;
+      background-color: $white-color;
+      position: absolute;
+      top: 64px;
+      left: -7px;
+      min-width: 240px;
+      z-index: 1000;
+      .dropdown-item {
+        padding: 0.625rem;
+        width: fit-content;
+      }
+    }
+    &:hover {
+      > a {
+        color: $dark-red-color;
+      }
+    }
+  }
+  .dropdown {
+    position: relative;
+    svg {
+      margin-left: 0.25rem;
+    }
+    &:hover {
+      &:after {
+        content: "";
+        position: absolute;
+        left: 10px;
+        bottom: -4px;
+        width: calc(100% - 20px);
+        height: 5px;
+        background-color: $dark-red-color;
+      }
+      .dropdown-menu {
+        display: block;
+      }
+      path {
+        fill: $dark-red-color;
+      }
+    }
+    :hover {
+      color: $dark-red-color;
+    }
+  }
+}
+.burger-icon {
+  display: none;
+}
+@media only screen and (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+  .burger-icon {
+    display: flex;
+    align-items: center;
+  }
+}
